@@ -27,4 +27,4 @@ _Nothing recorded yet._
 | GAI-T4 | 2026-10-18 | feature | closed | Shared code republished from GTFO.EZ: SharedOwner treats a switched-off GTFO.* mod as not installed, IsActive/TryGetSetting helpers | 2ff597c |
 | GAI-T5 | 2026-10-18 | feature | closed | Master switch: [0. Mod] Enabled is the cfg's first entry; false and GTFO.AbsurdItems loads nothing | baf57f5 |
 | GAI-T6 | 2026-10-18 | fix | closed | Hand Grenade keeps the glowstick's terminal names, so LIST/QUERY/PING show every Hand Grenade as a glow stick; give it its own (Hand Grenade, key HAND_GRENADE) | 645d804 |
-| GAI-T7 | 2026-10-18 | fix | open | Hand Grenade and Stim Pack numbers aren't held at 0 or more (a negative DrainPercentPerSecond grows the overheal without end, negative damage/heal); PickupCount/MaxCarried below 1 make empty pickups - validate them like the other settings | — |
+| GAI-T7 | 2026-10-18 | fix | closed | Hand Grenade and Stim Pack numbers aren't held at 0 or more (a negative DrainPercentPerSecond grows the overheal without end, negative damage/heal); PickupCount/MaxCarried below 1 make empty pickups - validate them like the other settings | ba9fb30 |
