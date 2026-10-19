@@ -3,6 +3,9 @@
 ## v1
 
 - Initial release. Every feature has its own on/off switch in the config.
+- Master switch: `[0. Mod] Enabled` (default `true`) is the config file's first entry; set it to
+  `false` and the whole mod is off - nothing is patched, no item is added, no hotkey or loot change.
+  The other GTFO.* mods then treat it as not installed.
 - **Artifact buffs** (moved here from GTFO.EZ, same settings): picking up an artifact buffs whoever
   picked it up for the rest of the level - each **Bold** +5% max health (healed too), each
   **Aggressive** +5% damage to enemies, each **Muted** 5% harder for enemies to detect you (capped

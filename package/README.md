@@ -8,7 +8,10 @@ the rest of the level, and the consumables found in lockers, boxes and lying aro
 health, tool and ammo kits. No game files are shipped or edited.
 
 **Every feature has its own on/off switch, and its numbers can be retuned,** in the config file
-BepInEx creates on first launch: `BepInEx\config\MindAttic.GTFO.AbsurdItems.cfg`.
+BepInEx creates on first launch: `BepInEx\config\MindAttic.GTFO.AbsurdItems.cfg`. Its first entry,
+`[0. Mod] Enabled`, is the master switch: set it to `false` and the whole mod is off - nothing is
+patched, no item is added, no hotkey or loot change - and the other GTFO.* mods treat it as not
+installed.
 
 ## What it changes
 
