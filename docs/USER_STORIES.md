@@ -26,4 +26,4 @@ _Nothing recorded yet._
 | GAI-T3 | 2026-10-18 | feature | closed | v1: GTFO.AbsurdItems mod - artifact buffs (from GTFO.EZ), Hand Grenade and Stim Pack (from GTFO.AbsurdWeapons), kits as loot in lockers and out in the open (Loot Mix + shared KitLoot), plus the shared Insert/Delete toggles | 73ec87c |
 | GAI-T4 | 2026-10-18 | feature | closed | Shared code republished from GTFO.EZ: SharedOwner treats a switched-off GTFO.* mod as not installed, IsActive/TryGetSetting helpers | 2ff597c |
 | GAI-T5 | 2026-10-18 | feature | closed | Master switch: [0. Mod] Enabled is the cfg's first entry; false and GTFO.AbsurdItems loads nothing | baf57f5 |
-| GAI-T6 | 2026-10-18 | fix | open | Hand Grenade keeps the glowstick's terminal names, so LIST/QUERY/PING show every Hand Grenade as a glow stick; give it its own (Hand Grenade, key HAND_GRENADE) | — |
+| GAI-T6 | 2026-10-18 | fix | closed | Hand Grenade keeps the glowstick's terminal names, so LIST/QUERY/PING show every Hand Grenade as a glow stick; give it its own (Hand Grenade, key HAND_GRENADE) | 645d804 |
