@@ -23,4 +23,6 @@ _Nothing recorded yet._
 |---|---|---|---|---|---|
 | GAI-T1 | 2026-10-18 | docs | closed | Start the permanent ticket log in the workflow database | — |
 | GAI-T2 | 2026-10-18 | fix | closed | Push initial project scaffolding so origin/main exists and pull stops failing | 3309db6 |
-| GAI-T3 | 2026-10-18 | feature | open | v1: GTFO.AbsurdItems mod - artifact buffs (from GTFO.EZ), Hand Grenade and Stim Pack (from GTFO.AbsurdWeapons), kits as loot in lockers and out in the open (Loot Mix + shared KitLoot), plus the shared Insert/Delete toggles | — |
+| GAI-T3 | 2026-10-18 | feature | closed | v1: GTFO.AbsurdItems mod - artifact buffs (from GTFO.EZ), Hand Grenade and Stim Pack (from GTFO.AbsurdWeapons), kits as loot in lockers and out in the open (Loot Mix + shared KitLoot), plus the shared Insert/Delete toggles | 73ec87c |
+| GAI-T4 | 2026-10-18 | feature | closed | Shared code republished from GTFO.EZ: SharedOwner treats a switched-off GTFO.* mod as not installed, IsActive/TryGetSetting helpers | 2ff597c |
+| GAI-T5 | 2026-10-18 | feature | closed | Master switch: [0. Mod] Enabled is the cfg's first entry; false and GTFO.AbsurdItems loads nothing | baf57f5 |
