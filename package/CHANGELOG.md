@@ -17,7 +17,8 @@
 - **Hand Grenade** (moved here from GTFO.AbsurdWeapons, same `[Hand Grenade]` and `[Sounds]`
   settings): a consumable lock melter thrown like a glowstick that blows after 3 s (60 damage
   falling to a quarter at 6 m, x6 stagger, breaks padlocks, never hurts players). Found only as
-  loot, 1 a pickup, up to 6 carried.
+  loot, 1 a pickup, up to 6 carried. The terminal lists it as a Hand Grenade (key `HAND_GRENADE`),
+  not as the glow stick it is cloned from.
 - **Stim Pack** (moved here from GTFO.AbsurdWeapons, same `[Stim Pack]` settings): the I2-LP
   cloned as a consumable of its own - heals 33% of max health and can overheal to 200%, draining
   back at 1% a second, and boosts your damage 33% for 15 s.

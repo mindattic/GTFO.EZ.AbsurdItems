@@ -100,7 +100,8 @@ around, flashing red faster and faster, and blows after **3 seconds**: 60 damage
 falling to a quarter at 6 m, x6 stagger, and it breaks padlocks in reach. It never hurts players.
 
 Nobody starts with any: **each one you find** as loot (see [Loot mix](#loot-mix)) **is 1 more**, up
-to **6** carried. Thrown ones are gone.
+to **6** carried. Thrown ones are gone. The terminal lists them as Hand Grenades (key
+HAND_GRENADE), not glow sticks.
 
 ### `[Hand Grenade]`
 

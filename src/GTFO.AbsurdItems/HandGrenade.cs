@@ -118,6 +118,10 @@ internal static class HandGrenade
             item.name = "HandGrenade";
             item.publicName = Formulas.DisplayName("Hand Grenade");
             item.LocalizedName = new LocalizedText { Id = 0, UntranslatedText = Formulas.DisplayName("Hand Grenade") };
+            // Its own terminal names too, or LIST/QUERY/PING would show every Hand Grenade as a glow
+            // stick (GLOWSTICK_123) - the clone keeps the glowstick's.
+            item.terminalItemLongName = new LocalizedText { Id = 0, UntranslatedText = "Hand Grenade" };
+            item.terminalItemShortName = "HAND_GRENADE";
             item.ConsumableAmmoMin = PickupCount.Value;
             item.ConsumableAmmoMax = PickupCount.Value;
             GameDataBlockBase<ItemDataBlock>.AddBlock(item, -1);
