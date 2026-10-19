@@ -1,6 +1,6 @@
 ---
 codex: 1
-project: GTFO.AbsurdItems
+project: GTFO.EZ.AbsurdItems
 code: GAI
 layer: stories
 status: living
@@ -8,7 +8,7 @@ updated: 2026-10-18
 ---
 <!-- GENERATED from MindAttic.Workflow/data/workflow.db by `workflow db render`. Do not edit: this file is rewritten from the database; change stories and tickets with the workflow CLI. -->
 
-# GTFO.AbsurdItems — User Stories
+# GTFO.EZ.AbsurdItems — User Stories
 > ✅ done (shipped & tested) · 🟡 partial · ⬜ planned. Every ✅ cites the test.
 
 ## Priority backlog
