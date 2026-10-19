@@ -3,7 +3,7 @@
 *(Listed on Thunderstore as `GtfoEZAbsurdItems`. Package names there can only use letters, numbers
 and underscores, so they can't contain a period.)*
 
-GTFO.EZ.AbsurdItems is a GTFO.EZ companion mod, built on [GTFO.EZ](https://github.com/mindattic/GTFO.EZ)'s core: it carries GTFO.EZ's shared code (the Insert/Delete infinite ammo and health toggles and their warden messages) and works with or without GTFO.EZ installed. It was called GTFO.AbsurdItems before its first release.
+GTFO.EZ.AbsurdItems is a GTFO.EZ companion mod, built on [GTFO.EZ](https://github.com/mindattic/GTFO.EZ)'s core: it carries GTFO.EZ's shared code (the Insert/Delete infinite ammo and health toggles, and MessageHelper, which puts on-screen messages wherever they fit) and works with or without GTFO.EZ installed. It was called GTFO.AbsurdItems before its first release.
 
 A BepInEx plugin for GTFO that changes items and pickups: artifacts buff whoever picks them up for
 the rest of the level, two new consumables - the **Hand Grenade** and the **Stim Pack** - and the
@@ -149,7 +149,7 @@ health, so a Bold artifact's bonus survives it. Found as loot (see [Loot mix](#l
 ## Infinite ammo and health
 
 **Insert** toggles infinite ammo (every gun and tool stays full, no reloads) and **Delete** infinite
-health (no damage to you; bots and teammates are unaffected), each announced as a warden message.
+health (no damage to you; bots and teammates are unaffected), each announced in the event log.
 Both start off. They're the same two keys every GTFO.* mod has, from one shared copy of the code
 written in GTFO.EZ; with several of the mods installed, only one answers, so a press never toggles
 twice.
