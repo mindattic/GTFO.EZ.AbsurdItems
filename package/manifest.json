@@ -2,7 +2,7 @@
   "name": "GtfoAbsurdItems",
   "version_number": "1.0.0",
   "website_url": "https://github.com/mindattic/GTFO.AbsurdItems",
-  "description": "Artifacts buff whoever picks them up for the level (+5% max health, +5% damage, 5% harder to detect, each), and consumable loot is a few small health, tool and ammo kits. Every feature toggles on/off in the config.",
+  "description": "Artifacts buff whoever picks them up for the level, the Hand Grenade and the Stim Pack (overheal and damage boost), and loot is a few small health, tool and ammo kits plus grenades and stims. Every feature toggles on/off.",
   "dependencies": [
     "BepInEx-BepInExPack_GTFO-3.2.3"
   ]

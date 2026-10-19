@@ -2,23 +2,22 @@ using BepInEx;
 using BepInEx.Logging;
 using BepInEx.Unity.IL2CPP;
 using HarmonyLib;
+using Il2CppInterop.Runtime.Injection;
 
 namespace GTFO.AbsurdItems;
 
 [BepInPlugin(GUID, NAME, VERSION)]
 [BepInProcess("GTFO.exe")]
 [BepInDependency(GtfoEzGuid, BepInDependency.DependencyFlags.SoftDependency)]
-[BepInDependency(AbsurdWeaponsGuid, BepInDependency.DependencyFlags.SoftDependency)]
 public class Plugin : BasePlugin
 {
     public const string GUID = "MindAttic.GTFO.AbsurdItems";
     public const string NAME = "GTFO.AbsurdItems";
     public const string VERSION = "1.0.0";
 
-    // Optional, both: GTFO.EZ's datablock tweaks run before this mod's kit loot (the kits follow the
-    // resource budget it sets), and GTFO.AbsurdWeapons' Loot Mix, when on, decides the loot instead.
+    // Optional: GTFO.EZ's datablock tweaks run before this mod's items and kit loot (the kits follow
+    // the resource budget it sets).
     internal const string GtfoEzGuid = "MindAttic.GTFO.EZ";
-    internal const string AbsurdWeaponsGuid = "MindAttic.GTFO.AbsurdWeapons";
 
     internal static ManualLogSource Logger = null!;
 
@@ -39,8 +38,14 @@ public class Plugin : BasePlugin
 
         ArtifactBuffs.Bind(Config);
         ConsumablesAreKits.Bind(Config);
+        HandGrenade.Bind(Config);
+        StimPack.Bind(Config);
+        Sounds.Bind(Config);
+        ClassInjector.RegisterTypeInIl2Cpp<BurstFlash>();
+        ClassInjector.RegisterTypeInIl2Cpp<HandGrenadeFuse>();
 
         new Harmony(GUID).PatchAll();
+        AddComponent<HandGrenadeSupply>();
 
         Logger.LogInfo($"{NAME} v{VERSION} loaded.");
     }

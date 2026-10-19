@@ -1,17 +1,22 @@
 using System;
+using System.Collections.Generic;
 using BepInEx.Configuration;
-using BepInEx.Unity.IL2CPP;
 using GameData;
 using HarmonyLib;
 using MindAttic.GTFO.Shared;
+using UnityEngine;
 
 namespace GTFO.AbsurdItems;
 
 // Consumables found in lockers, boxes or lying around are a few small health, tool and ammo kits -
 // the shared Shared/KitLoot.cs, published from GTFO.EZ - on top of the zone's normal resource packs.
-// Moved here from GTFO.EZ with the same config keys and defaults. GTFO.EZ, when installed, leaves
-// its own consumable spawn odds alone while this is on, and its datablock tweaks (the consumable
-// spawn multiplier, the zone resource budget the kit count follows) run first.
+// With Loot Mix on (it was GTFO.AbsurdWeapons'), the same run adds Hand Grenades and Stim Packs to
+// the kits' lottery at their weights' odds, and leaves OutInTheOpenShare of the loot lying around
+// the zone instead of in boxes. One run, one set of kit settings: Consumables Are Kits' (moved here
+// from GTFO.EZ, same keys and defaults); GTFO.AbsurdWeapons' duplicates of them (KitLootPercent,
+// HealthKitWeight, ...) are gone. GTFO.EZ, when installed, leaves its own consumable spawn odds
+// alone while this is on, and its datablock tweaks (the consumable spawn multiplier, the zone
+// resource budget the kit count follows) run first.
 [HarmonyPatch]
 internal static class ConsumablesAreKits
 {
@@ -23,18 +28,25 @@ internal static class ConsumablesAreKits
     internal static ConfigEntry<int> KitChargesMin = null!;
     internal static ConfigEntry<int> KitChargesMax = null!;
 
+    // Loot Mix - the Hand Grenade and Stim Pack in the same lottery (keys as GTFO.AbsurdWeapons had them).
+    internal static ConfigEntry<bool> LootMixEnabled = null!;
+    internal static ConfigEntry<float> HandGrenadeWeight = null!;
+    internal static ConfigEntry<float> StimPackWeight = null!;
+    internal static ConfigEntry<float> OutInTheOpenShare = null!;
+
     internal static void Bind(ConfigFile config)
     {
         const string s = "Loot";
         Enabled = config.Bind(s, "Consumables Are Kits", true,
             "Consumables found in lockers, boxes or lying around are small health, tool and ammo kits, and only a few of " +
-            "them (see Kit Loot) - on top of the zone's normal resource packs, which are left as they are. Off: vanilla " +
-            "consumables (retuned by GTFO.EZ's per-item weights, if that's installed). Takes effect on restart.");
+            "them (see Kit Loot) - on top of the zone's normal resource packs, which are left as they are. Loot Mix adds Hand " +
+            "Grenades and Stim Packs to them. Off: vanilla consumables (retuned by GTFO.EZ's per-item weights, if that's " +
+            "installed), and no Loot Mix. Takes effect on restart.");
 
         KitLootPercent = NonNegative.Bind(config, s, "Kit Loot (%)", 20f,
             "With Consumables Are Kits on: how much the kits found as loot add, in percent of a zone's normal health, ammo " +
             "and tool pack budget (averaged over the difficulty tiers). Default 20 - about a fifth more kits than the resource " +
-            "packs alone. Takes effect on restart.");
+            "packs alone. Loot Mix's Hand Grenades and Stim Packs come on top. Takes effect on restart.");
 
         HealthKitWeight = NonNegative.Bind(config, s, "Health Kit Weight", 1f,
             "With Consumables Are Kits on: multiplies the odds a kit is a health kit. The odds already follow the zone's own health pack budget; 1 keeps that split. Takes effect on restart.");
@@ -50,25 +62,36 @@ internal static class ConsumablesAreKits
 
         KitChargesMax = config.Bind(s, "Kit Charges Max", 2,
             "Most charges a kit found as loot holds. Takes effect on restart.");
+
+        LootMixEnabled = config.Bind(s, "Loot Mix Enabled", true,
+            "With Consumables Are Kits on: Hand Grenades and Stim Packs join the kits in the loot, and OutInTheOpenShare of " +
+            "it lies out in the open. Off: kits only, where the game puts them. Takes effect on restart.");
+
+        HandGrenadeWeight = NonNegative.Bind(config, s, "HandGrenadeWeight", 4f,
+            "With Loot Mix on: odds a loot consumable is a Hand Grenade, against the kits' weights (1 each). Takes effect on restart.");
+
+        StimPackWeight = NonNegative.Bind(config, s, "StimPackWeight", 1f,
+            "With Loot Mix on: relative odds it's a Stim Pack. Takes effect on restart.");
+
+        OutInTheOpenShare = config.Bind(s, "OutInTheOpenShare", 0.6f,
+            new ConfigDescription("With Loot Mix on: share (0-1) of loot consumables left lying out in the open instead of in boxes and lockers. Takes effect on restart.",
+                new AcceptableValueRange<float>(0f, 1f)));
     }
 
     // After GTFO.EZ's tweaks: its consumable spawn multiplier sets the tables' sizes and its
     // expedition balance the resource budget the kit count follows. Without it, this runs alone.
+    // Low priority: after the Hand Grenade and Stim Pack have registered their items.
     [HarmonyPatch(typeof(GameDataInit), nameof(GameDataInit.Initialize))]
     [HarmonyPostfix]
     [HarmonyAfter(Plugin.GtfoEzGuid)]
+    [HarmonyPriority(Priority.Low)]
     private static void Apply()
     {
         try
         {
             if (!Enabled.Value) return;
-            if (AbsurdWeaponsLootMixOn())
-            {
-                Plugin.Logger.LogInfo("Loot: GTFO.AbsurdWeapons' Loot Mix is on, so it decides which consumables spawn - Consumables Are Kits is skipped.");
-                return;
-            }
 
-            KitLoot.Fill(new KitLootSettings
+            var settings = new KitLootSettings
             {
                 LogName = "Consumables Are Kits",
                 LootPercent = KitLootPercent.Value,
@@ -77,7 +100,20 @@ internal static class ConsumablesAreKits
                 HealthWeight = HealthKitWeight.Value,
                 ToolWeight = ToolKitWeight.Value,
                 AmmoWeight = AmmoKitWeight.Value,
-            });
+            };
+
+            if (!LootMixEnabled.Value)
+            {
+                KitLoot.Fill(settings);
+                return;
+            }
+
+            if (HandGrenade.Enabled.Value) AddExtra(settings.Extras, HandGrenade.ItemId, HandGrenadeWeight, "Hand Grenade");
+            if (StimPack.Enabled.Value) AddExtra(settings.Extras, StimPack.ItemId, StimPackWeight, "Stim Pack");
+
+            var inBoxes = 1f - Mathf.Clamp01(OutInTheOpenShare.Value);
+            var tables = KitLoot.Fill(settings, block => block.ChanceToSpawnInResourceContainer = inBoxes);
+            Plugin.Logger.LogInfo($"Loot Mix: {tables} table(s), {1f - inBoxes:P0} out in the open.");
         }
         catch (Exception e)
         {
@@ -85,22 +121,9 @@ internal static class ConsumablesAreKits
         }
     }
 
-    // With GTFO.AbsurdWeapons' Loot Mix on, its mix (kits, Hand Grenades, Stim Packs) is the
-    // consumable loot, so this steps aside rather than filling the tables twice. Its setting is read
-    // off its own config; if that can't be found, a loaded AbsurdWeapons counts as on (its default).
-    private static bool AbsurdWeaponsLootMixOn()
+    private static void AddExtra(List<(uint Id, float Weight)> into, uint id, ConfigEntry<float> weight, string what)
     {
-        try
-        {
-            if (!IL2CPPChainloader.Instance.Plugins.TryGetValue(Plugin.AbsurdWeaponsGuid, out var info)) return false;
-            if (info.Instance is BasePlugin plugin && plugin.Config.TryGetEntry<bool>("Loot", "Loot Mix Enabled", out var enabled))
-                return enabled.Value;
-            return true;
-        }
-        catch (Exception e)
-        {
-            Plugin.Logger.LogWarning($"Loot: couldn't check for GTFO.AbsurdWeapons, applying this mod's kit loot. {e.Message}");
-            return false;
-        }
+        if (!GameDataBlockBase<ItemDataBlock>.HasBlock(id)) Plugin.Logger.LogWarning($"Loot Mix: no {what} item found - left out of the loot.");
+        else if (weight.Value > 0f) into.Add((id, weight.Value));
     }
 }

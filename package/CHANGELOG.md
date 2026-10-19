@@ -13,7 +13,19 @@
 - **Consumables Are Kits** (moved here from GTFO.EZ, same settings): consumables found in lockers,
   boxes or lying around are a few small health, tool and ammo kits of 1-2 charges each, adding about
   20% to the zone's normal resource packs, split the way the zone's resource budget is. *Kit Loot
-  (%)*, *Kit Charges Min/Max* and the per-kind weights are configurable. With GTFO.AbsurdWeapons'
-  Loot Mix on, that mix decides the consumable loot instead.
+  (%)*, *Kit Charges Min/Max* and the per-kind weights are configurable.
+- **Hand Grenade** (moved here from GTFO.AbsurdWeapons, same `[Hand Grenade]` and `[Sounds]`
+  settings): a consumable lock melter thrown like a glowstick that blows after 3 s (60 damage
+  falling to a quarter at 6 m, x6 stagger, breaks padlocks, never hurts players). Found only as
+  loot, 1 a pickup, up to 6 carried.
+- **Stim Pack** (moved here from GTFO.AbsurdWeapons, same `[Stim Pack]` settings): the I2-LP
+  cloned as a consumable of its own - heals 33% of max health and can overheal to 200%, draining
+  back at 1% a second, and boosts your damage 33% for 15 s.
+- **Loot Mix** (moved here from GTFO.AbsurdWeapons): with *Consumables Are Kits* on, Hand Grenades
+  (`HandGrenadeWeight` 4) and Stim Packs (`StimPackWeight` 1) join the kits in one kit-loot run, and
+  60% of the loot lies out in the open (`OutInTheOpenShare`). `Loot Mix Enabled` keeps its name.
+  AbsurdWeapons' own copies of the kit settings (`KitLootPercent`, `HealthKitWeight`,
+  `ToolKitWeight`, `AmmoKitWeight`, `KitChargesMin/Max`) are merged into the GTFO.EZ names here
+  (`Kit Loot (%)`, `Health Kit Weight`, ..., `Kit Charges Min/Max`), same meanings and defaults.
 - **Insert** (infinite ammo) and **Delete** (infinite health) toggles, announced as warden
   messages - the shared keys every GTFO.* mod has, so they never clash with several installed.
