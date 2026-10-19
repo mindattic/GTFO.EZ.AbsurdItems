@@ -31,3 +31,4 @@ _Nothing recorded yet._
 | GAI-T8 | 2026-10-18 | fix | closed | Moved features lost players' settings: artifact buffs and Consumables Are Kits (GTFO.EZ) and Hand Grenade, Stim Pack, Loot Mix (GTFO.AbsurdWeapons) bind in a new cfg, so values tuned in the old mods' cfgs silently reset to defaults; import each key once from the old cfg when it isn't in AbsurdItems' yet | 88a5e61 |
 | GAI-T9 | 2026-10-18 | fix | closed | Shared code from GTFO.EZ (G.EZ-T72/T75): warden message never cuts the game's own short; infinite-health check can't throw | — |
 | GAI-T10 | 2026-10-18 | chore | closed | Renamed to GTFO.EZ.AbsurdItems (project, namespace, plugin GUID, network events, package name, docs) as a GTFO.EZ companion mod built on its core | 6ac3e98 |
+| GAI-T11 | 2026-10-18 | fix | closed | Shared code from GTFO.EZ (G.EZ-T78/T79): WardenMessage became MessageHelper; Insert/Delete announce in the event log | — |
