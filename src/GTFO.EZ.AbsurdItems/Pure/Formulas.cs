@@ -1,15 +1,15 @@
 using System;
 
-namespace GTFO.AbsurdItems;
+namespace GTFO.EZ.AbsurdItems;
 
 /// <summary>
 /// The numbers behind the items' behaviour, kept free of game and Unity types so they're unit
-/// tested directly (tests/GTFO.AbsurdItems.Tests). The item code calls these.
+/// tested directly (tests/GTFO.EZ.AbsurdItems.Tests). The item code calls these.
 /// </summary>
 internal static class Formulas
 {
     // A modded item's display name, marked so it can't be mistaken for a vanilla one (the same mark
-    // GTFO.AbsurdWeapons puts on its weapons).
+    // GTFO.EZ.AbsurdWeapons puts on its weapons).
     internal static string DisplayName(string name) => name + " (!)";
 
     // Area damage at `distance` from the center: full at the center, falling linearly to

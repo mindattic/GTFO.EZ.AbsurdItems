@@ -4,11 +4,11 @@ using System.IO;
 using BepInEx;
 using BepInEx.Configuration;
 
-namespace GTFO.AbsurdItems;
+namespace GTFO.EZ.AbsurdItems;
 
 /// <summary>
 /// The features moved here from GTFO.EZ (artifact buffs, Consumables Are Kits) and
-/// GTFO.AbsurdWeapons (Hand Grenade, Stim Pack, Loot Mix) bind the same keys, but in this mod's own
+/// GTFO.EZ.AbsurdWeapons (Hand Grenade, Stim Pack, Loot Mix) bind the same keys, but in this mod's own
 /// .cfg - so a player's values in the old mods' files would silently fall back to the defaults. Each
 /// moved key that isn't in this mod's .cfg yet is copied once from the old file (read as text: those
 /// mods no longer bind the keys, and their files keep them as orphaned lines). A key already in this
@@ -17,7 +17,7 @@ namespace GTFO.AbsurdItems;
 internal static class ConfigImport
 {
     private const string EzFile = "MindAttic.GTFO.EZ.cfg";
-    private const string AbsurdWeaponsFile = "MindAttic.GTFO.AbsurdWeapons.cfg";
+    private const string AbsurdWeaponsFile = "MindAttic.GTFO.EZ.AbsurdWeapons.cfg";
 
     // The (section, key) pairs in this mod's .cfg before anything was bound this run.
     private static HashSet<(string, string)> existing = new();
@@ -62,7 +62,7 @@ internal static class ConfigImport
             foreach (var key in new[] { "Artifact Buffs Enabled", "Bold: Max Health (%)", "Aggressive: Damage (%)", "Muted: Quieter (%)" })
                 Copy(ez, EzFile, "Artifacts", key, "Artifacts", key);
 
-            // GTFO.AbsurdWeapons: the Hand Grenade, the Stim Pack, their sounds and Loot Mix's own keys.
+            // GTFO.EZ.AbsurdWeapons: the Hand Grenade, the Stim Pack, their sounds and Loot Mix's own keys.
             foreach (var key in new[] { "Hand Grenade Enabled", "FuseSeconds", "BlastRadius", "BlastDamage", "BlastEdgeFraction",
                          "BlastStagger", "MaxCarried", "PickupCount", "ThrowForceMultiplier" })
                 Copy(aw, AbsurdWeaponsFile, "Hand Grenade", key, "Hand Grenade", key);
@@ -89,11 +89,11 @@ internal static class ConfigImport
             }
             if (!awLootMix) Copy(ez, EzFile, "Loot", "Consumables Are Kits", "Loot", "Consumables Are Kits");
 
-            if (imported > 0) Plugin.Logger.LogInfo($"Config import: {imported} setting(s) carried over from GTFO.EZ / GTFO.AbsurdWeapons.");
+            if (imported > 0) Plugin.Logger.LogInfo($"Config import: {imported} setting(s) carried over from GTFO.EZ / GTFO.EZ.AbsurdWeapons.");
         }
         catch (Exception e)
         {
-            Plugin.Logger.LogWarning($"Config import: couldn't carry settings over from GTFO.EZ / GTFO.AbsurdWeapons. {e.Message}");
+            Plugin.Logger.LogWarning($"Config import: couldn't carry settings over from GTFO.EZ / GTFO.EZ.AbsurdWeapons. {e.Message}");
         }
     }
 

@@ -1,6 +1,6 @@
 using Player;
 
-namespace GTFO.AbsurdItems;
+namespace GTFO.EZ.AbsurdItems;
 
 // The host's bots have a Dam_PlayerDamageLocal too, so its Setup runs once per bot as well as for
 // you - a bot joining mid-level would otherwise wipe the artifact buffs. Every hook on it checks

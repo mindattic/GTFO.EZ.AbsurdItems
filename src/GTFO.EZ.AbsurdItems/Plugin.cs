@@ -4,15 +4,15 @@ using BepInEx.Unity.IL2CPP;
 using HarmonyLib;
 using Il2CppInterop.Runtime.Injection;
 
-namespace GTFO.AbsurdItems;
+namespace GTFO.EZ.AbsurdItems;
 
 [BepInPlugin(GUID, NAME, VERSION)]
 [BepInProcess("GTFO.exe")]
 [BepInDependency(GtfoEzGuid, BepInDependency.DependencyFlags.SoftDependency)]
 public class Plugin : BasePlugin
 {
-    public const string GUID = "MindAttic.GTFO.AbsurdItems";
-    public const string NAME = "GTFO.AbsurdItems";
+    public const string GUID = "MindAttic.GTFO.EZ.AbsurdItems";
+    public const string NAME = "GTFO.EZ.AbsurdItems";
     public const string VERSION = "1.0.0";
 
     // Optional: GTFO.EZ's datablock tweaks run before this mod's items and kit loot (the kits follow
@@ -42,7 +42,7 @@ public class Plugin : BasePlugin
         HandGrenade.Bind(Config);
         StimPack.Bind(Config);
         Sounds.Bind(Config);
-        ConfigImport.Apply(Config); // after every Bind: values from GTFO.EZ's / GTFO.AbsurdWeapons' cfgs, once
+        ConfigImport.Apply(Config); // after every Bind: values from GTFO.EZ's / GTFO.EZ.AbsurdWeapons' cfgs, once
         ClassInjector.RegisterTypeInIl2Cpp<BurstFlash>();
         ClassInjector.RegisterTypeInIl2Cpp<HandGrenadeFuse>();
 

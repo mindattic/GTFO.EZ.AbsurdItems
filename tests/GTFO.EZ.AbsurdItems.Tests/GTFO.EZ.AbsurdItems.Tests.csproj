@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
     <IsPackable>false</IsPackable>
-    <RootNamespace>GTFO.AbsurdItems.Tests</RootNamespace>
+    <RootNamespace>GTFO.EZ.AbsurdItems.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,7 +18,7 @@
   <!-- The mod's game-free code, compiled straight in: the mod itself needs the game's Il2Cpp
        assemblies, these files don't. -->
   <ItemGroup>
-    <Compile Include="..\..\src\GTFO.AbsurdItems\Pure\*.cs" Link="Pure\%(Filename)%(Extension)" />
+    <Compile Include="..\..\src\GTFO.EZ.AbsurdItems\Pure\*.cs" Link="Pure\%(Filename)%(Extension)" />
   </ItemGroup>
 
 </Project>

@@ -8,9 +8,9 @@ using Il2CppInterop.Runtime.Attributes;
 using LevelGeneration;
 using UnityEngine;
 
-namespace GTFO.AbsurdItems;
+namespace GTFO.EZ.AbsurdItems;
 
-// What the Hand Grenade's blast needs, ported from GTFO.AbsurdWeapons (where its grenade guns share
+// What the Hand Grenade's blast needs, ported from GTFO.EZ.AbsurdWeapons (where its grenade guns share
 // the same look, sound and damage).
 
 /// <summary>The blast's look and sound: the trip mine's explosion effect, a flash and the frag grenade bang.</summary>
@@ -36,14 +36,14 @@ internal static class Explosion
             if (!effectLogged)
             {
                 effectLogged = true;
-                Plugin.Logger.LogInfo($"GTFO.AbsurdItems grenade explosion effect: {(pool != null ? "trip mine explosion" : "none loaded (flash only)")}.");
+                Plugin.Logger.LogInfo($"GTFO.EZ.AbsurdItems grenade explosion effect: {(pool != null ? "trip mine explosion" : "none loaded (flash only)")}.");
             }
             pool?.AquireEffect()?.Play(null, position, Quaternion.identity);
         }
         catch (Exception e)
         {
             effectFailed = true;
-            Plugin.Logger.LogWarning($"GTFO.AbsurdItems grenade explosion effect unavailable: {e.Message}");
+            Plugin.Logger.LogWarning($"GTFO.EZ.AbsurdItems grenade explosion effect unavailable: {e.Message}");
         }
     }
 }
@@ -111,7 +111,7 @@ internal static class LockDamage
             }
             catch (Exception e)
             {
-                Plugin.Logger.LogWarning($"GTFO.AbsurdItems lock damage failed: {e.Message}");
+                Plugin.Logger.LogWarning($"GTFO.EZ.AbsurdItems lock damage failed: {e.Message}");
             }
         }
     }
@@ -171,7 +171,7 @@ internal static class GrenadeModel
             if (!logged)
             {
                 logged = true;
-                Plugin.Logger.LogInfo($"GTFO.AbsurdItems Hand Grenade model: {source}.");
+                Plugin.Logger.LogInfo($"GTFO.EZ.AbsurdItems Hand Grenade model: {source}.");
             }
         }
     }
@@ -188,7 +188,7 @@ internal sealed class BurstFlash : MonoBehaviour
     [HideFromIl2Cpp]
     internal static void Spawn(Vector3 position, Color color, float range, float intensity, float seconds)
     {
-        var go = new GameObject("GTFO.AbsurdItems Flash");
+        var go = new GameObject("GTFO.EZ.AbsurdItems Flash");
         go.transform.position = position;
         var flash = go.AddComponent<BurstFlash>();
         flash.peak = intensity;

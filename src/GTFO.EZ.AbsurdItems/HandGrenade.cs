@@ -11,7 +11,7 @@ using Player;
 using SNetwork;
 using UnityEngine;
 
-namespace GTFO.AbsurdItems;
+namespace GTFO.EZ.AbsurdItems;
 
 /// <summary>
 /// The Hand Grenade: a consumable, thrown like a glowstick - hold to wind up, release to throw -
@@ -84,7 +84,7 @@ internal static class HandGrenade
         }
         catch (Exception e)
         {
-            Plugin.Logger.LogWarning($"GTFO.AbsurdItems couldn't set the Hand Grenade cap: {e.Message}");
+            Plugin.Logger.LogWarning($"GTFO.EZ.AbsurdItems couldn't set the Hand Grenade cap: {e.Message}");
         }
     }
 
@@ -98,18 +98,18 @@ internal static class HandGrenade
         {
             if (!Enabled.Value)
             {
-                Plugin.Logger.LogInfo("GTFO.AbsurdItems: Hand Grenade disabled in the config - not adding it.");
+                Plugin.Logger.LogInfo("GTFO.EZ.AbsurdItems: Hand Grenade disabled in the config - not adding it.");
                 return;
             }
             if (GameDataBlockBase<ItemDataBlock>.HasBlock(ItemId))
             {
-                if (!added) Plugin.Logger.LogError($"GTFO.AbsurdItems: item id {ItemId} is already taken by another mod's datablock - not adding the Hand Grenade.");
+                if (!added) Plugin.Logger.LogError($"GTFO.EZ.AbsurdItems: item id {ItemId} is already taken by another mod's datablock - not adding the Hand Grenade.");
                 return;
             }
             var source = FindGlowstick();
             if (source == null)
             {
-                Plugin.Logger.LogError("GTFO.AbsurdItems: couldn't find the glowstick's item datablock - not adding the Hand Grenade.");
+                Plugin.Logger.LogError("GTFO.EZ.AbsurdItems: couldn't find the glowstick's item datablock - not adding the Hand Grenade.");
                 return;
             }
 
@@ -126,11 +126,11 @@ internal static class HandGrenade
             item.ConsumableAmmoMax = PickupCount.Value;
             GameDataBlockBase<ItemDataBlock>.AddBlock(item, -1);
             added = true;
-            Plugin.Logger.LogInfo($"GTFO.AbsurdItems added the Hand Grenade (consumable; item id {ItemId}, cloned from '{source.name}' {source.persistentID}; sync id {item.syncID} vs source {source.syncID}).");
+            Plugin.Logger.LogInfo($"GTFO.EZ.AbsurdItems added the Hand Grenade (consumable; item id {ItemId}, cloned from '{source.name}' {source.persistentID}; sync id {item.syncID} vs source {source.syncID}).");
         }
         catch (Exception e)
         {
-            Plugin.Logger.LogError($"GTFO.AbsurdItems failed to add the Hand Grenade: {e}");
+            Plugin.Logger.LogError($"GTFO.EZ.AbsurdItems failed to add the Hand Grenade: {e}");
         }
     }
 
@@ -173,7 +173,7 @@ internal static class HandGrenade
         }
         catch (Exception e)
         {
-            Plugin.Logger.LogWarning($"GTFO.AbsurdItems couldn't reskin the held Hand Grenade: {e.Message}");
+            Plugin.Logger.LogWarning($"GTFO.EZ.AbsurdItems couldn't reskin the held Hand Grenade: {e.Message}");
         }
     }
 
@@ -201,7 +201,7 @@ internal static class HandGrenade
         }
         catch (Exception e)
         {
-            Plugin.Logger.LogWarning($"GTFO.AbsurdItems couldn't reskin a dropped Hand Grenade: {e.Message}");
+            Plugin.Logger.LogWarning($"GTFO.EZ.AbsurdItems couldn't reskin a dropped Hand Grenade: {e.Message}");
         }
     }
 
@@ -237,11 +237,11 @@ internal static class HandGrenade
         }
         catch (Exception e)
         {
-            Plugin.Logger.LogError($"GTFO.AbsurdItems couldn't arm a Hand Grenade: {e}");
+            Plugin.Logger.LogError($"GTFO.EZ.AbsurdItems couldn't arm a Hand Grenade: {e}");
         }
     }
 
-    private const string ModelName = "GTFO.AbsurdItems Hand Grenade Model";
+    private const string ModelName = "GTFO.EZ.AbsurdItems Hand Grenade Model";
 
     // Hides every renderer and light already on `go` and adds the lock melter's meshes, on the
     // same layer (the first-person item has its own).
@@ -312,7 +312,7 @@ internal sealed class HandGrenadeFuse : MonoBehaviour
         }
         catch (Exception e)
         {
-            Plugin.Logger.LogError($"GTFO.AbsurdItems Hand Grenade fuse failed: {e.Message}");
+            Plugin.Logger.LogError($"GTFO.EZ.AbsurdItems Hand Grenade fuse failed: {e.Message}");
             Explode();
         }
     }
@@ -336,7 +336,7 @@ internal sealed class HandGrenadeFuse : MonoBehaviour
         }
         catch (Exception e)
         {
-            Plugin.Logger.LogError($"GTFO.AbsurdItems Hand Grenade blast failed: {e.Message}");
+            Plugin.Logger.LogError($"GTFO.EZ.AbsurdItems Hand Grenade blast failed: {e.Message}");
         }
 
         // Gone: the host despawns the synced item for everyone; until that arrives it's hidden here.
@@ -351,7 +351,7 @@ internal sealed class HandGrenadeFuse : MonoBehaviour
         }
         catch (Exception e)
         {
-            Plugin.Logger.LogWarning($"GTFO.AbsurdItems couldn't despawn a Hand Grenade: {e.Message}");
+            Plugin.Logger.LogWarning($"GTFO.EZ.AbsurdItems couldn't despawn a Hand Grenade: {e.Message}");
         }
         gameObject.SetActive(false);
     }
@@ -373,7 +373,7 @@ internal sealed class HandGrenadeSupply : MonoBehaviour
         }
         catch (Exception e)
         {
-            Plugin.Logger.LogError($"GTFO.AbsurdItems Hand Grenade cap failed: {e.Message}");
+            Plugin.Logger.LogError($"GTFO.EZ.AbsurdItems Hand Grenade cap failed: {e.Message}");
         }
     }
 }

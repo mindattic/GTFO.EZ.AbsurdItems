@@ -1,8 +1,8 @@
 using NUnit.Framework;
 
-namespace GTFO.AbsurdItems.Tests;
+namespace GTFO.EZ.AbsurdItems.Tests;
 
-// Moved here with the Hand Grenade and Stim Pack from GTFO.AbsurdWeapons, whose own copies of these
+// Moved here with the Hand Grenade and Stim Pack from GTFO.EZ.AbsurdWeapons, whose own copies of these
 // formulas (still used by its grenade guns) keep their tests there.
 [TestFixture]
 public class FormulasTests

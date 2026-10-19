@@ -2,6 +2,9 @@
 
 ## v1
 
+- Renamed from GTFO.AbsurdItems to **GTFO.EZ.AbsurdItems** before release, as a GTFO.EZ companion mod built
+  on GTFO.EZ's core (plugin GUID `MindAttic.GTFO.EZ.AbsurdItems`, config file
+  `MindAttic.GTFO.EZ.AbsurdItems.cfg`, Thunderstore package `GtfoEZAbsurdItems`).
 - Initial release. Every feature has its own on/off switch in the config.
 - Master switch: `[0. Mod] Enabled` (default `true`) is the config file's first entry; set it to
   `false` and the whole mod is off - nothing is patched, no item is added, no hotkey or loot change.
@@ -14,15 +17,15 @@
   boxes or lying around are a few small health, tool and ammo kits of 1-2 charges each, adding about
   20% to the zone's normal resource packs, split the way the zone's resource budget is. *Kit Loot
   (%)*, *Kit Charges Min/Max* and the per-kind weights are configurable.
-- **Hand Grenade** (moved here from GTFO.AbsurdWeapons, same `[Hand Grenade]` and `[Sounds]`
+- **Hand Grenade** (moved here from GTFO.EZ.AbsurdWeapons, same `[Hand Grenade]` and `[Sounds]`
   settings): a consumable lock melter thrown like a glowstick that blows after 3 s (60 damage
   falling to a quarter at 6 m, x6 stagger, breaks padlocks, never hurts players). Found only as
   loot, 1 a pickup, up to 6 carried. The terminal lists it as a Hand Grenade (key `HAND_GRENADE`),
   not as the glow stick it is cloned from.
-- **Stim Pack** (moved here from GTFO.AbsurdWeapons, same `[Stim Pack]` settings): the I2-LP
+- **Stim Pack** (moved here from GTFO.EZ.AbsurdWeapons, same `[Stim Pack]` settings): the I2-LP
   cloned as a consumable of its own - heals 33% of max health and can overheal to 200%, draining
   back at 1% a second, and boosts your damage 33% for 15 s.
-- **Loot Mix** (moved here from GTFO.AbsurdWeapons): with *Consumables Are Kits* on, Hand Grenades
+- **Loot Mix** (moved here from GTFO.EZ.AbsurdWeapons): with *Consumables Are Kits* on, Hand Grenades
   (`HandGrenadeWeight` 4) and Stim Packs (`StimPackWeight` 1) join the kits in one kit-loot run, and
   60% of the loot lies out in the open (`OutInTheOpenShare`). `Loot Mix Enabled` keeps its name.
   AbsurdWeapons' own copies of the kit settings (`KitLootPercent`, `HealthKitWeight`,
@@ -33,6 +36,6 @@
 - Every Hand Grenade and Stim Pack number is held at 0 or more, like the other settings (a typo'd
   minus sign lands on 0: a negative `DrainPercentPerSecond` made the overheal grow without end), and
   `PickupCount` / `MaxCarried` at 1 or more (below that, pickups were empty).
-- Settings carry over from GTFO.EZ and GTFO.AbsurdWeapons: on first run, every moved setting not yet
+- Settings carry over from GTFO.EZ and GTFO.EZ.AbsurdWeapons: on first run, every moved setting not yet
   in this mod's `.cfg` is copied from theirs (for the kit settings, from whichever mod's loot was in
   use), instead of starting from the defaults.

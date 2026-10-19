@@ -1,7 +1,9 @@
-# GTFO.AbsurdItems
+# GTFO.EZ.AbsurdItems
 
-*(Listed on Thunderstore as `GtfoAbsurdItems`. Package names there can only use letters, numbers
+*(Listed on Thunderstore as `GtfoEZAbsurdItems`. Package names there can only use letters, numbers
 and underscores, so they can't contain a period.)*
+
+GTFO.EZ.AbsurdItems is a GTFO.EZ companion mod, built on [GTFO.EZ](https://github.com/mindattic/GTFO.EZ)'s core: it carries GTFO.EZ's shared code (the Insert/Delete infinite ammo and health toggles and their warden messages) and works with or without GTFO.EZ installed. It was called GTFO.AbsurdItems before its first release.
 
 A BepInEx plugin for GTFO that changes items and pickups: artifacts buff whoever picks them up for
 the rest of the level, two new consumables - the **Hand Grenade** and the **Stim Pack** - and the
@@ -9,7 +11,7 @@ consumables found in lockers, boxes and lying around are a few small health, too
 those two. No game files are shipped or edited.
 
 **Every feature has its own on/off switch, and its numbers can be retuned,** in the config file
-BepInEx creates on first launch: `BepInEx\config\MindAttic.GTFO.AbsurdItems.cfg`. Its first entry,
+BepInEx creates on first launch: `BepInEx\config\MindAttic.GTFO.EZ.AbsurdItems.cfg`. Its first entry,
 `[0. Mod] Enabled`, is the master switch: set it to `false` and the whole mod is off - nothing is
 patched, no item is added, no hotkey or loot change - and the other GTFO.* mods treat it as not
 installed.
@@ -26,7 +28,7 @@ installed.
 | [Infinite ammo / health](#infinite-ammo-and-health) | none | **Insert** / **Delete** toggles, off at the start | - |
 
 Artifact buffs and *Consumables Are Kits* moved here from GTFO.EZ, the Hand Grenade, Stim Pack and
-Loot Mix from GTFO.AbsurdWeapons - each with the same settings and defaults, except that the kit
+Loot Mix from GTFO.EZ.AbsurdWeapons - each with the same settings and defaults, except that the kit
 settings both of those mods had are now one set (see [`[Loot]`](#loot)).
 
 ## Artifact buffs
@@ -86,7 +88,7 @@ All of it takes effect on restart.
 
 With every kit weight at 0, no kits spawn - only Loot Mix's Hand Grenades and Stim Packs, if it's on.
 
-GTFO.AbsurdWeapons' Loot Mix had its own copies of the kit settings (`KitLootPercent`,
+GTFO.EZ.AbsurdWeapons' Loot Mix had its own copies of the kit settings (`KitLootPercent`,
 `HealthKitWeight`, `ToolKitWeight`, `AmmoKitWeight`, `KitChargesMin`, `KitChargesMax`); they're
 merged into GTFO.EZ's names above (`Kit Loot (%)`, `Health Kit Weight`, ...), which mean the same
 and have the same defaults. Its `Loot Mix Enabled`, `HandGrenadeWeight`, `StimPackWeight` and
@@ -157,14 +159,14 @@ twice.
 - **GTFO.EZ** used to have artifact buffs and *Consumables Are Kits*; both moved here. Running an
   older GTFO.EZ build alongside this mod buffs each artifact twice: switch one of them off in its
   config.
-- **GTFO.AbsurdWeapons** used to have the Hand Grenade, Stim Pack and Loot Mix; all three moved
-  here. Running an older GTFO.AbsurdWeapons build alongside this mod adds both mods' copies of the
+- **GTFO.EZ.AbsurdWeapons** used to have the Hand Grenade, Stim Pack and Loot Mix; all three moved
+  here. Running an older GTFO.EZ.AbsurdWeapons build alongside this mod adds both mods' copies of the
   items (the second one to load finds the item id taken and skips it) and fills the loot twice:
   update it, or switch its Hand Grenade, Stim Pack and Loot Mix off. Otherwise compatible - it
   leaves artifacts in place, so artifact buffs work with it installed.
 - **Your old settings carry over.** On first run, each moved setting that isn't in this mod's
   `.cfg` yet is copied from `MindAttic.GTFO.EZ.cfg` (artifact buffs, *Consumables Are Kits* and the
-  kit settings) or `MindAttic.GTFO.AbsurdWeapons.cfg` (Hand Grenade, Stim Pack, their sounds, Loot
+  kit settings) or `MindAttic.GTFO.EZ.AbsurdWeapons.cfg` (Hand Grenade, Stim Pack, their sounds, Loot
   Mix - and the kit settings instead, if its Loot Mix was on, since those were the ones in use).
   After that this mod's `.cfg` is the one that counts; a setting already in it is never overwritten.
 - **Turning a mod off:** every GTFO.* mod's `.cfg` starts with `[0. Mod] Enabled`; a GTFO.* mod
@@ -186,7 +188,7 @@ DLLs are the build references).
 ## Project layout
 
 ```
-src/GTFO.AbsurdItems/
+src/GTFO.EZ.AbsurdItems/
   Plugin.cs              BepInEx entry point: binds each feature's config, applies Harmony patches
   ArtifactBuffs.cs       Per-player artifact counts and the max health, damage and detection buffs
   ConsumablesAreKits.cs  Runs the shared kit loot at GameDataInit, after GTFO.EZ's tweaks, with Loot
@@ -195,7 +197,7 @@ src/GTFO.AbsurdItems/
   StimPack.cs            Stim Pack consumable: I2-LP clone, overheal, damage boost
   Blast.cs               The Hand Grenade's explosion, area damage, padlock damage, model and flash
   Sounds.cs              The Hand Grenade's [Sounds] events
-  ConfigImport.cs        Carries moved settings over from GTFO.EZ's and GTFO.AbsurdWeapons' cfgs, once
+  ConfigImport.cs        Carries moved settings over from GTFO.EZ's and GTFO.EZ.AbsurdWeapons' cfgs, once
   DataBlocks.cs          Datablock cloning
   Pure/Formulas.cs       The items' numbers (no game types; unit tested)
   LocalPlayerDamage.cs   Tells your own damage component from the host's bots'

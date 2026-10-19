@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using BepInEx.Configuration;
 using UnityEngine;
 
-namespace GTFO.AbsurdItems;
+namespace GTFO.EZ.AbsurdItems;
 
 /// <summary>
 /// The Hand Grenade's sounds, picked from the game's own Wwise events. Each is a config entry
@@ -33,7 +33,7 @@ internal static class Sounds
         }
         catch (Exception e)
         {
-            if (failed.Add(eventName)) Plugin.Logger.LogWarning($"GTFO.AbsurdItems couldn't play sound '{eventName}': {e.Message}");
+            if (failed.Add(eventName)) Plugin.Logger.LogWarning($"GTFO.EZ.AbsurdItems couldn't play sound '{eventName}': {e.Message}");
         }
     }
 

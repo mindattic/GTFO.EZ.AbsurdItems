@@ -7,7 +7,7 @@ using Localization;
 using Player;
 using UnityEngine;
 
-namespace GTFO.AbsurdItems;
+namespace GTFO.EZ.AbsurdItems;
 
 /// <summary>
 /// The Stim Pack: a consumable of its own - the I2-LP health syringe's item cloned under a new id,
@@ -88,7 +88,7 @@ internal static class StimPack
             var source = GameDataBlockBase<ItemDataBlock>.GetBlock(SourceItemId);
             if (source == null)
             {
-                Plugin.Logger.LogError($"GTFO.AbsurdItems: couldn't find the I2-LP (item {SourceItemId}) - not adding the Stim Pack.");
+                Plugin.Logger.LogError($"GTFO.EZ.AbsurdItems: couldn't find the I2-LP (item {SourceItemId}) - not adding the Stim Pack.");
                 return;
             }
             var item = DataBlocks.Clone(source);
@@ -100,11 +100,11 @@ internal static class StimPack
             item.terminalItemLongName = new LocalizedText { Id = 0, UntranslatedText = "Stim Pack" };
             item.terminalItemShortName = "STIM_PACK";
             GameDataBlockBase<ItemDataBlock>.AddBlock(item, -1);
-            Plugin.Logger.LogInfo($"GTFO.AbsurdItems added the Stim Pack (consumable; item id {ItemId}, cloned from the I2-LP).");
+            Plugin.Logger.LogInfo($"GTFO.EZ.AbsurdItems added the Stim Pack (consumable; item id {ItemId}, cloned from the I2-LP).");
         }
         catch (Exception e)
         {
-            Plugin.Logger.LogError($"GTFO.AbsurdItems failed to add the Stim Pack: {e}");
+            Plugin.Logger.LogError($"GTFO.EZ.AbsurdItems failed to add the Stim Pack: {e}");
         }
     }
 
@@ -207,7 +207,7 @@ internal static class Overheal
         attempt = 0;
         lastSent = float.NaN;
         untilTick = TickSeconds;
-        Plugin.Logger.LogInfo($"GTFO.AbsurdItems Stim Pack: overhealing to {target:0.##} HP (max {max:0.##}).");
+        Plugin.Logger.LogInfo($"GTFO.EZ.AbsurdItems Stim Pack: overhealing to {target:0.##} HP (max {max:0.##}).");
     }
 
     // Takes the overheal's raise back off `damage`'s max, if it's the overhealed one (a bot's own
@@ -254,7 +254,7 @@ internal static class Overheal
             }
             else
             {
-                Plugin.Logger.LogWarning($"GTFO.AbsurdItems Stim Pack: overheal didn't stick (health {health:0.##}, wanted {target:0.##}).");
+                Plugin.Logger.LogWarning($"GTFO.EZ.AbsurdItems Stim Pack: overheal didn't stick (health {health:0.##}, wanted {target:0.##}).");
                 attempt = OverhealAttempts + 1;
             }
         }
@@ -283,7 +283,7 @@ internal static class Overheal
             SetRaise(damage, 0f);
             if (damage.Health > damage.HealthMax) damage.SendSetHealth(damage.HealthMax);
         }
-        if (active) Plugin.Logger.LogInfo($"GTFO.AbsurdItems Stim Pack overheal ended: {reason}.");
+        if (active) Plugin.Logger.LogInfo($"GTFO.EZ.AbsurdItems Stim Pack overheal ended: {reason}.");
         Clear();
     }
 }

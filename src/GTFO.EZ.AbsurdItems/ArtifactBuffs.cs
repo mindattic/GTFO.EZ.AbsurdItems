@@ -7,7 +7,7 @@ using HarmonyLib;
 using LevelGeneration;
 using Player;
 
-namespace GTFO.AbsurdItems;
+namespace GTFO.EZ.AbsurdItems;
 
 // Artifact pickups give the player who picked one up a buff for the rest of the level: each Bold
 // (Uncommon) +5% max health, each Aggressive (Rare) +5% damage dealt, each Muted (Common) 5% harder

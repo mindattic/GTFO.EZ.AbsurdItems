@@ -1,7 +1,7 @@
 using System.Reflection;
 using GameData;
 
-namespace GTFO.AbsurdItems;
+namespace GTFO.EZ.AbsurdItems;
 
 /// <summary>Helpers for building new items out of cloned vanilla datablocks.</summary>
 internal static class DataBlocks

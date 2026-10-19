@@ -1,6 +1,6 @@
 using BepInEx.Configuration;
 
-namespace GTFO.AbsurdItems;
+namespace GTFO.EZ.AbsurdItems;
 
 // Every float setting here is a percentage, weight, multiplier, distance or duration, none of which
 // mean anything below 0 - a negative one would turn into negative health, damage or kit counts, or

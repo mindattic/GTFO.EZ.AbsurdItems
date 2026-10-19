@@ -6,14 +6,14 @@ using HarmonyLib;
 using MindAttic.GTFO.Shared;
 using UnityEngine;
 
-namespace GTFO.AbsurdItems;
+namespace GTFO.EZ.AbsurdItems;
 
 // Consumables found in lockers, boxes or lying around are a few small health, tool and ammo kits -
 // the shared Shared/KitLoot.cs, published from GTFO.EZ - on top of the zone's normal resource packs.
-// With Loot Mix on (it was GTFO.AbsurdWeapons'), the same run adds Hand Grenades and Stim Packs to
+// With Loot Mix on (it was GTFO.EZ.AbsurdWeapons'), the same run adds Hand Grenades and Stim Packs to
 // the kits' lottery at their weights' odds, and leaves OutInTheOpenShare of the loot lying around
 // the zone instead of in boxes. One run, one set of kit settings: Consumables Are Kits' (moved here
-// from GTFO.EZ, same keys and defaults); GTFO.AbsurdWeapons' duplicates of them (KitLootPercent,
+// from GTFO.EZ, same keys and defaults); GTFO.EZ.AbsurdWeapons' duplicates of them (KitLootPercent,
 // HealthKitWeight, ...) are gone. GTFO.EZ, when installed, leaves its own consumable spawn odds
 // alone while this is on, and its datablock tweaks (the consumable spawn multiplier, the zone
 // resource budget the kit count follows) run first.
@@ -28,7 +28,7 @@ internal static class ConsumablesAreKits
     internal static ConfigEntry<int> KitChargesMin = null!;
     internal static ConfigEntry<int> KitChargesMax = null!;
 
-    // Loot Mix - the Hand Grenade and Stim Pack in the same lottery (keys as GTFO.AbsurdWeapons had them).
+    // Loot Mix - the Hand Grenade and Stim Pack in the same lottery (keys as GTFO.EZ.AbsurdWeapons had them).
     internal static ConfigEntry<bool> LootMixEnabled = null!;
     internal static ConfigEntry<float> HandGrenadeWeight = null!;
     internal static ConfigEntry<float> StimPackWeight = null!;
@@ -117,7 +117,7 @@ internal static class ConsumablesAreKits
         }
         catch (Exception e)
         {
-            Plugin.Logger.LogError($"GTFO.AbsurdItems couldn't set the kit loot: {e}");
+            Plugin.Logger.LogError($"GTFO.EZ.AbsurdItems couldn't set the kit loot: {e}");
         }
     }
 
