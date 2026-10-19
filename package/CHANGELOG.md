@@ -30,3 +30,6 @@
   (`Kit Loot (%)`, `Health Kit Weight`, ..., `Kit Charges Min/Max`), same meanings and defaults.
 - **Insert** (infinite ammo) and **Delete** (infinite health) toggles, announced as warden
   messages - the shared keys every GTFO.* mod has, so they never clash with several installed.
+- Every Hand Grenade and Stim Pack number is held at 0 or more, like the other settings (a typo'd
+  minus sign lands on 0: a negative `DrainPercentPerSecond` made the overheal grow without end), and
+  `PickupCount` / `MaxCarried` at 1 or more (below that, pickups were empty).

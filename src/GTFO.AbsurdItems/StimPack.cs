@@ -43,11 +43,11 @@ internal static class StimPack
     {
         Enabled = config.Bind("Stim Pack", "Stim Pack Enabled", true,
             "Adds the Stim Pack, a consumable of its own (the I2-LP is left as it is). Takes effect on restart.");
-        HealPercent = config.Bind("Stim Pack", "HealPercent", 33f, "Health a Stim Pack gives, as a percent of max health.");
-        MaxHealthPercent = config.Bind("Stim Pack", "MaxHealthPercent", 200f, "How high a Stim Pack can take your health, as a percent of max health.");
-        DrainPercentPerSecond = config.Bind("Stim Pack", "DrainPercentPerSecond", 1f, "How fast health above max drains back down to max, in percent of max health per second.");
-        DamageBoostPercent = config.Bind("Stim Pack", "DamageBoostPercent", 33f, "Extra damage dealt (guns and melee) while the Stim Pack's boost runs, in percent.");
-        DamageBoostSeconds = config.Bind("Stim Pack", "DamageBoostSeconds", 15f, "How long the damage boost lasts after a Stim Pack.");
+        HealPercent = NonNegative.Bind(config, "Stim Pack", "HealPercent", 33f, "Health a Stim Pack gives, as a percent of max health.");
+        MaxHealthPercent = NonNegative.Bind(config, "Stim Pack", "MaxHealthPercent", 200f, "How high a Stim Pack can take your health, as a percent of max health.");
+        DrainPercentPerSecond = NonNegative.Bind(config, "Stim Pack", "DrainPercentPerSecond", 1f, "How fast health above max drains back down to max, in percent of max health per second.");
+        DamageBoostPercent = NonNegative.Bind(config, "Stim Pack", "DamageBoostPercent", 33f, "Extra damage dealt (guns and melee) while the Stim Pack's boost runs, in percent.");
+        DamageBoostSeconds = NonNegative.Bind(config, "Stim Pack", "DamageBoostSeconds", 15f, "How long the damage boost lasts after a Stim Pack.");
     }
 
     private static bool Boosting(Agent? source)

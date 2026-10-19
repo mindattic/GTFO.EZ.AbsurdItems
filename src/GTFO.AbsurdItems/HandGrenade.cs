@@ -43,14 +43,14 @@ internal static class HandGrenade
     {
         Enabled = config.Bind("Hand Grenade", "Hand Grenade Enabled", true,
             "Adds the Hand Grenade (the glowstick's item, cloned) at all. It only spawns as loot through [Loot] Loot Mix Enabled, which adds it to the kit loot (Consumables Are Kits). Takes effect on restart.");
-        FuseSeconds = config.Bind("Hand Grenade", "FuseSeconds", 3f, "Seconds from the throw until it explodes.");
-        BlastRadius = config.Bind("Hand Grenade", "BlastRadius", 6f, "Metres the blast reaches.");
-        BlastDamage = config.Bind("Hand Grenade", "BlastDamage", 60f, "Damage at the blast's center.");
-        BlastEdgeFraction = config.Bind("Hand Grenade", "BlastEdgeFraction", 0.25f, "Share of damage left at the blast's edge.");
-        BlastStagger = config.Bind("Hand Grenade", "BlastStagger", 6f, "Blast stagger multiplier.");
-        MaxCarried = config.Bind("Hand Grenade", "MaxCarried", 6, "The most Hand Grenades you can carry.");
-        PickupCount = config.Bind("Hand Grenade", "PickupCount", 1, "How many Hand Grenades one loot pickup holds. Takes effect on restart.");
-        ThrowForceMultiplier = config.Bind("Hand Grenade", "ThrowForceMultiplier", 2f, "Multiplies the glowstick's own wind-up throw strength, so it lobs much farther.");
+        FuseSeconds = NonNegative.Bind(config, "Hand Grenade", "FuseSeconds", 3f, "Seconds from the throw until it explodes.");
+        BlastRadius = NonNegative.Bind(config, "Hand Grenade", "BlastRadius", 6f, "Metres the blast reaches.");
+        BlastDamage = NonNegative.Bind(config, "Hand Grenade", "BlastDamage", 60f, "Damage at the blast's center.");
+        BlastEdgeFraction = NonNegative.Bind(config, "Hand Grenade", "BlastEdgeFraction", 0.25f, "Share of damage left at the blast's edge.");
+        BlastStagger = NonNegative.Bind(config, "Hand Grenade", "BlastStagger", 6f, "Blast stagger multiplier.");
+        MaxCarried = AtLeastOne.Bind(config, "Hand Grenade", "MaxCarried", 6, "The most Hand Grenades you can carry.");
+        PickupCount = AtLeastOne.Bind(config, "Hand Grenade", "PickupCount", 1, "How many Hand Grenades one loot pickup holds. Takes effect on restart.");
+        ThrowForceMultiplier = NonNegative.Bind(config, "Hand Grenade", "ThrowForceMultiplier", 2f, "Multiplies the glowstick's own wind-up throw strength, so it lobs much farther.");
     }
 
     internal static bool IsOurs(ItemDataBlock? block) => block != null && block.persistentID == ItemId;
