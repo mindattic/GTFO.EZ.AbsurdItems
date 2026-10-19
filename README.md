@@ -177,6 +177,16 @@ twice.
   modifier (`PlayerAgent.GetDetectionMod`); whether enemies consult it for ordinary movement noise
   is the part to check.
 
+## Versioning
+
+v1, v2, v3... - major-only bumps, matching the convention across other MindAttic projects.
+Thunderstore requires `manifest.json`'s `version_number` to be strict `x.y.z`, so "v13" is `13.0.0`
+(minor/patch stay 0). `package/CHANGELOG.md` headers use the short `vN` form.
+
+The GTFO.EZ family - GTFO.EZ, GTFO.EZ.AbsurdWeapons, GTFO.EZ.AbsurdMoves and GTFO.EZ.AbsurdItems -
+shares one version number, so a matching set is easy to spot: the companions' first release is
+**v13**, in step with GTFO.EZ (not v1), and a release of the family bumps all four together.
+
 ## Building
 
 ```powershell
@@ -205,7 +215,7 @@ src/GTFO.EZ.AbsurdItems/
   LocalPlayerDamage.cs   Tells your own damage component from the host's bots'
   NonNegative.cs         Holds percentage and weight settings at 0 or more
   Shared/                generated from GTFO.EZ's src/GTFO.EZ/Shared by its tools/publish-shared.ps1 -
-                         never edit here: the Insert/Delete toggles and the kit loot (KitLoot.cs)
+                         never edit here: the Insert/Delete toggles, MessageHelper and the kit loot (KitLoot.cs)
 tests/GTFO.EZ.AbsurdItems.Tests/  NUnit tests for Pure/ - `dotnet test tests/GTFO.EZ.AbsurdItems.Tests`, no game needed
 package/                 Thunderstore manifest, icon (256x256, from logo.png), README and changelog
 logo.png                 Full-size logo

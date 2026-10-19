@@ -32,3 +32,4 @@ _Nothing recorded yet._
 | GAI-T9 | 2026-10-18 | fix | closed | Shared code from GTFO.EZ (G.EZ-T72/T75): warden message never cuts the game's own short; infinite-health check can't throw | — |
 | GAI-T10 | 2026-10-18 | chore | closed | Renamed to GTFO.EZ.AbsurdItems (project, namespace, plugin GUID, network events, package name, docs) as a GTFO.EZ companion mod built on its core | 6ac3e98 |
 | GAI-T11 | 2026-10-18 | fix | closed | Shared code from GTFO.EZ (G.EZ-T78/T79): WardenMessage became MessageHelper; Insert/Delete announce in the event log | — |
+| GAI-T12 | 2026-10-19 | chore | closed | Align the GTFO.EZ family on one version, v13 (user request), documented in the READMEs and changelog; README review corrections | manifest + Plugin.VERSION 13.0.0 |

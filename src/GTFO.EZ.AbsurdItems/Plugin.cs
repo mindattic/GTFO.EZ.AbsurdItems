@@ -13,7 +13,7 @@ public class Plugin : BasePlugin
 {
     public const string GUID = "MindAttic.GTFO.EZ.AbsurdItems";
     public const string NAME = "GTFO.EZ.AbsurdItems";
-    public const string VERSION = "1.0.0";
+    public const string VERSION = "13.0.0";
 
     // Optional: GTFO.EZ's datablock tweaks run before this mod's items and kit loot (the kits follow
     // the resource budget it sets).
