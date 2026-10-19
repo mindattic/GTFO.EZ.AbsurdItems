@@ -33,3 +33,6 @@
 - Every Hand Grenade and Stim Pack number is held at 0 or more, like the other settings (a typo'd
   minus sign lands on 0: a negative `DrainPercentPerSecond` made the overheal grow without end), and
   `PickupCount` / `MaxCarried` at 1 or more (below that, pickups were empty).
+- Settings carry over from GTFO.EZ and GTFO.AbsurdWeapons: on first run, every moved setting not yet
+  in this mod's `.cfg` is copied from theirs (for the kit settings, from whichever mod's loot was in
+  use), instead of starting from the defaults.

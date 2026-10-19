@@ -162,6 +162,11 @@ twice.
   items (the second one to load finds the item id taken and skips it) and fills the loot twice:
   update it, or switch its Hand Grenade, Stim Pack and Loot Mix off. Otherwise compatible - it
   leaves artifacts in place, so artifact buffs work with it installed.
+- **Your old settings carry over.** On first run, each moved setting that isn't in this mod's
+  `.cfg` yet is copied from `MindAttic.GTFO.EZ.cfg` (artifact buffs, *Consumables Are Kits* and the
+  kit settings) or `MindAttic.GTFO.AbsurdWeapons.cfg` (Hand Grenade, Stim Pack, their sounds, Loot
+  Mix - and the kit settings instead, if its Loot Mix was on, since those were the ones in use).
+  After that this mod's `.cfg` is the one that counts; a setting already in it is never overwritten.
 - **Turning a mod off:** every GTFO.* mod's `.cfg` starts with `[0. Mod] Enabled`; a GTFO.* mod
   switched off there counts as not installed for the others.
 - Artifact buffs haven't been confirmed in play yet. Muted scales the game's per-player detection
@@ -190,6 +195,7 @@ src/GTFO.AbsurdItems/
   StimPack.cs            Stim Pack consumable: I2-LP clone, overheal, damage boost
   Blast.cs               The Hand Grenade's explosion, area damage, padlock damage, model and flash
   Sounds.cs              The Hand Grenade's [Sounds] events
+  ConfigImport.cs        Carries moved settings over from GTFO.EZ's and GTFO.AbsurdWeapons' cfgs, once
   DataBlocks.cs          Datablock cloning
   Pure/Formulas.cs       The items' numbers (no game types; unit tested)
   LocalPlayerDamage.cs   Tells your own damage component from the host's bots'

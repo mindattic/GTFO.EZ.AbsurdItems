@@ -24,6 +24,7 @@ public class Plugin : BasePlugin
     public override void Load()
     {
         Logger = Log;
+        ConfigImport.Snapshot(Config); // before the first Bind writes the file
 
         // The master switch is the cfg's first entry ("0. Mod" sorts ahead of every other section), so
         // the mod can be turned off from its .cfg where a mod manager profile doesn't list it. When it's
@@ -41,6 +42,7 @@ public class Plugin : BasePlugin
         HandGrenade.Bind(Config);
         StimPack.Bind(Config);
         Sounds.Bind(Config);
+        ConfigImport.Apply(Config); // after every Bind: values from GTFO.EZ's / GTFO.AbsurdWeapons' cfgs, once
         ClassInjector.RegisterTypeInIl2Cpp<BurstFlash>();
         ClassInjector.RegisterTypeInIl2Cpp<HandGrenadeFuse>();
 
