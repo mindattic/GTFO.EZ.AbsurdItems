@@ -173,9 +173,8 @@ twice.
   After that this mod's `.cfg` is the one that counts; a setting already in it is never overwritten.
 - **Turning a mod off:** every GTFO.* mod's `.cfg` starts with `[0. Mod] Enabled`; a GTFO.* mod
   switched off there counts as not installed for the others.
-- Artifact buffs haven't been confirmed in play yet. Muted scales the game's per-player detection
-  modifier (`PlayerAgent.GetDetectionMod`); whether enemies consult it for ordinary movement noise
-  is the part to check.
+- Artifact buffs are confirmed in play. Muted scales the game's per-player detection modifier
+  (`PlayerAgent.GetDetectionMod`).
 
 ## Versioning
 
