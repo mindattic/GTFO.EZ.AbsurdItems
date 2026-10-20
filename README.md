@@ -214,8 +214,8 @@ src/GTFO.EZ.AbsurdItems/
   Pure/Formulas.cs       The items' numbers (no game types; unit tested)
   LocalPlayerDamage.cs   Tells your own damage component from the host's bots'
   NonNegative.cs         Holds percentage and weight settings at 0 or more
-  Shared/                generated from GTFO.EZ's src/GTFO.EZ/Shared by its tools/publish-shared.ps1 -
-                         never edit here: the Insert/Delete toggles, MessageHelper and the kit loot (KitLoot.cs)
+  Shared/                linked from external/GTFO.EZ.Shared (a git submodule; change it there):
+                         SharedOwner, the Insert/Delete toggles, MessageHelper and the kit loot (KitLoot.cs)
 tests/GTFO.EZ.AbsurdItems.Tests/  NUnit tests for Pure/ - `dotnet test tests/GTFO.EZ.AbsurdItems.Tests`, no game needed
 package/                 Thunderstore manifest, icon (256x256, from logo.png), README and changelog
 logo.png                 Full-size logo

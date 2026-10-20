@@ -9,7 +9,7 @@ using UnityEngine;
 namespace GTFO.EZ.AbsurdItems;
 
 // Consumables found in lockers, boxes or lying around are a few small health, tool and ammo kits -
-// the shared Shared/KitLoot.cs, published from GTFO.EZ - on top of the zone's normal resource packs.
+// the shared KitLoot.cs, from GTFO.EZ.Shared - on top of the zone's normal resource packs.
 // With Loot Mix on (it was GTFO.EZ.AbsurdWeapons'), the same run adds Hand Grenades and Stim Packs to
 // the kits' lottery at their weights' odds, and leaves OutInTheOpenShare of the loot lying around
 // the zone instead of in boxes. One run, one set of kit settings: Consumables Are Kits' (moved here
