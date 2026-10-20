@@ -45,7 +45,7 @@ internal static class HandGrenade
             "Adds the Hand Grenade (the glowstick's item, cloned) at all. It only spawns as loot through [Loot] Loot Mix Enabled, which adds it to the kit loot (Consumables Are Kits). Takes effect on restart.");
         FuseSeconds = NonNegative.Bind(config, "Hand Grenade", "FuseSeconds", 3f, "Seconds from the throw until it explodes.");
         BlastRadius = NonNegative.Bind(config, "Hand Grenade", "BlastRadius", 6f, "Metres the blast reaches.");
-        BlastDamage = NonNegative.Bind(config, "Hand Grenade", "BlastDamage", 60f, "Damage at the blast's center.");
+        BlastDamage = NonNegative.Bind(config, "Hand Grenade", "BlastDamage", 60f, "Damage at the blast's center, before damage boosts (Aggressive artifacts, a Stim Pack).");
         BlastEdgeFraction = NonNegative.Bind(config, "Hand Grenade", "BlastEdgeFraction", 0.25f, "Share of damage left at the blast's edge.");
         BlastStagger = NonNegative.Bind(config, "Hand Grenade", "BlastStagger", 6f, "Blast stagger multiplier.");
         MaxCarried = AtLeastOne.Bind(config, "Hand Grenade", "MaxCarried", 6, "The most Hand Grenades you can carry.");

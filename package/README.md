@@ -46,7 +46,7 @@ Aggressive; max health only changes on your own game.
 |---|---|---|
 | `Artifact Buffs Enabled` | true | Turns artifact buffs on or off. |
 | `Bold: Max Health (%)` | 5 | Max health added per Bold artifact, in percent of your starting max health. |
-| `Aggressive: Damage (%)` | 5 | Damage to enemies added per Aggressive artifact. |
+| `Aggressive: Damage (%)` | 5 | Damage to enemies (guns, melee and Hand Grenades) added per Aggressive artifact. |
 | `Muted: Quieter (%)` | 5 | How much harder you are to detect per Muted artifact (capped at 75%). |
 
 ## Consumables are kits
@@ -98,7 +98,7 @@ and have the same defaults. Its `Loot Mix Enabled`, `HandGrenadeWeight`, `StimPa
 
 The glowstick's own item, cloned - so the throw, bounce and sync are all vanilla - wearing a lock
 melter's look. Hold to wind up and release to throw (twice as hard as a glowstick); it bounces
-around, flashing red faster and faster, and blows after **3 seconds**: 60 damage at the center,
+around, flashing red faster and faster, and blows after **3 seconds**: 60 damage at the center (more with damage boosts),
 falling to a quarter at 6 m, x6 stagger, and it breaks padlocks in reach. It never hurts players.
 
 Nobody starts with any: **each one you find** as loot (see [Loot mix](#loot-mix)) **is 1 more**, up
@@ -113,7 +113,7 @@ HAND_GRENADE), not glow sticks.
 | `FuseSeconds` | 3 | Seconds from the throw until it explodes. |
 | `ThrowForceMultiplier` | 2 | Multiplies the glowstick's own throw strength. |
 | `BlastRadius` | 6 | Metres the blast reaches. |
-| `BlastDamage` | 60 | Damage at the blast's center. |
+| `BlastDamage` | 60 | Damage at the blast's center, before damage boosts (Aggressive artifacts, a Stim Pack). |
 | `BlastEdgeFraction` | 0.25 | Share of damage left at the blast's edge. |
 | `BlastStagger` | 6 | Blast stagger multiplier. |
 | `PickupCount` | 1 | How many one pickup holds (takes effect on restart). |
@@ -143,7 +143,7 @@ health, so a Bold artifact's bonus survives it. Found as loot (see [Loot mix](#l
 | `HealPercent` | 33 | Health a Stim Pack gives, in percent of max health. |
 | `MaxHealthPercent` | 200 | How high it can take your health, in percent of max health. |
 | `DrainPercentPerSecond` | 1 | How fast health above max drains back to max, in percent of max a second. |
-| `DamageBoostPercent` | 33 | Extra damage dealt (guns and melee) while the boost runs, in percent. |
+| `DamageBoostPercent` | 33 | Extra damage dealt (guns, melee and Hand Grenades) while the boost runs, in percent. |
 | `DamageBoostSeconds` | 15 | How long the damage boost lasts after a Stim Pack. |
 
 ## Infinite ammo and health

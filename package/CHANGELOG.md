@@ -2,8 +2,13 @@
 
 ## v14
 
+- **Bold artifact fix:** picking up a Bold artifact during a Stim Pack overheal no longer cuts health
+  back to max; health above the old max is left to drain.
 - **Hand Grenade fix:** the carry cap (`MaxCarried`) was also applied to teammates' consumable
   storage on your game while you held Hand Grenades; now only your own storage gets it.
+- Config and README wording: Hand Grenade damage counts the Aggressive and Stim Pack damage boosts.
+- Moves in step with the GTFO.EZ family's version number (GTFO.EZ, GTFO.EZ.AbsurdWeapons,
+  GTFO.EZ.AbsurdMoves and GTFO.EZ.AbsurdItems share one).
 
 ## v13
 

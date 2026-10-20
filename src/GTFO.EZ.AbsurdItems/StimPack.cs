@@ -46,7 +46,7 @@ internal static class StimPack
         HealPercent = NonNegative.Bind(config, "Stim Pack", "HealPercent", 33f, "Health a Stim Pack gives, as a percent of max health.");
         MaxHealthPercent = NonNegative.Bind(config, "Stim Pack", "MaxHealthPercent", 200f, "How high a Stim Pack can take your health, as a percent of max health.");
         DrainPercentPerSecond = NonNegative.Bind(config, "Stim Pack", "DrainPercentPerSecond", 1f, "How fast health above max drains back down to max, in percent of max health per second.");
-        DamageBoostPercent = NonNegative.Bind(config, "Stim Pack", "DamageBoostPercent", 33f, "Extra damage dealt (guns and melee) while the Stim Pack's boost runs, in percent.");
+        DamageBoostPercent = NonNegative.Bind(config, "Stim Pack", "DamageBoostPercent", 33f, "Extra damage dealt (guns, melee and Hand Grenades) while the Stim Pack's boost runs, in percent.");
         DamageBoostSeconds = NonNegative.Bind(config, "Stim Pack", "DamageBoostSeconds", 15f, "How long the damage boost lasts after a Stim Pack.");
     }
 

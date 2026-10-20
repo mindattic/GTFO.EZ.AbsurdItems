@@ -33,3 +33,7 @@ _Nothing recorded yet._
 | GAI-T10 | 2026-10-18 | chore | closed | Renamed to GTFO.EZ.AbsurdItems (project, namespace, plugin GUID, network events, package name, docs) as a GTFO.EZ companion mod built on its core | 6ac3e98 |
 | GAI-T11 | 2026-10-18 | fix | closed | Shared code from GTFO.EZ (G.EZ-T78/T79): WardenMessage became MessageHelper; Insert/Delete announce in the event log | — |
 | GAI-T12 | 2026-10-19 | chore | closed | Align the GTFO.EZ family on one version, v13 (user request), documented in the READMEs and changelog; README review corrections | manifest + Plugin.VERSION 13.0.0 |
+| GAI-T13 | 2026-10-19 | chore | open | Convert tracked source files to LF line endings via .gitattributes, per HOUSE-LAW-13 (low priority) | — |
+| GAI-T14 | 2026-10-19 | fix | closed | Picking up a Bold artifact during a Stim Pack overheal cut health back to max - an overheal above the old max is now left to drain (bughunt for v14; uncommitted) | ee006e5 |
+| GAI-T15 | 2026-10-19 | fix | closed | Hand Grenade carry cap was applied to teammates' consumable storage on your game - only your own storage now (bughunt for v14; uncommitted) | 247c0d4 |
+| GAI-T16 | 2026-10-19 | chore | open | Bump GTFO.EZ.AbsurdItems to v14.0.0 with the GTFO.EZ family; changelog for GAI-T14/T15, and config/README wording that Hand Grenade damage counts the damage boosts (user request) | — |
