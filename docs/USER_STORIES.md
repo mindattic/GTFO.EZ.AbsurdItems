@@ -37,4 +37,4 @@ _Nothing recorded yet._
 | GAI-T14 | 2026-10-19 | fix | closed | Picking up a Bold artifact during a Stim Pack overheal cut health back to max - an overheal above the old max is now left to drain (bughunt for v14; uncommitted) | ee006e5 |
 | GAI-T15 | 2026-10-19 | fix | closed | Hand Grenade carry cap was applied to teammates' consumable storage on your game - only your own storage now (bughunt for v14; uncommitted) | 247c0d4 |
 | GAI-T16 | 2026-10-19 | chore | closed | Bump GTFO.EZ.AbsurdItems to v14.0.0 with the GTFO.EZ family; changelog for GAI-T14/T15, and config/README wording that Hand Grenade damage counts the damage boosts (user request) | b927b53 |
-| GAI-T17 | 2026-10-19 | docs | open | Mark everything new as confirmed in play: drop the not-yet-confirmed notes from the READMEs and config text (user confirmed after in-game testing) | — |
+| GAI-T17 | 2026-10-19 | docs | closed | Mark everything new as confirmed in play: drop the not-yet-confirmed notes from the READMEs and config text (user confirmed after in-game testing) | 4021ccc |
