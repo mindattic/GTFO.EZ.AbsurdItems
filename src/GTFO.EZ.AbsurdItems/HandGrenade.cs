@@ -80,7 +80,9 @@ internal static class HandGrenade
     {
         try
         {
-            if (type == AmmoType.CurrentConsumable) Uncap(__instance.ConsumableAmmo);
+            // Only your own storage: a teammate's on your game setting its consumable up mustn't get your cap.
+            var local = PlayerBackpackManager.LocalBackpack?.AmmoStorage;
+            if (type == AmmoType.CurrentConsumable && local != null && local.Pointer == __instance.Pointer) Uncap(__instance.ConsumableAmmo);
         }
         catch (Exception e)
         {

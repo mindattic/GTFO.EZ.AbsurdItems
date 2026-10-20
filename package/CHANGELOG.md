@@ -1,5 +1,10 @@
 # Changelog
 
+## v14
+
+- **Hand Grenade fix:** the carry cap (`MaxCarried`) was also applied to teammates' consumable
+  storage on your game while you held Hand Grenades; now only your own storage gets it.
+
 ## v13
 
 - **Versioning:** the GTFO.EZ family - GTFO.EZ, GTFO.EZ.AbsurdWeapons, GTFO.EZ.AbsurdMoves and
