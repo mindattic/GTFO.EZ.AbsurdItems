@@ -104,9 +104,14 @@ internal static class ArtifactBuffs
         var gain = bonus - _bonusApplied;
         if (Math.Abs(gain) < 0.01f) return;
         _bonusApplied = bonus;
-        var max = Math.Max(0.01f, damage.HealthMax + gain);
+        var oldMax = damage.HealthMax;
+        var max = Math.Max(0.01f, oldMax + gain);
         damage.HealthMax = max;
-        damage.SendSetHealth(Math.Min(max, Math.Max(0.01f, damage.Health + Math.Max(0f, gain))));
+        // Health above max is a Stim Pack overheal: leave it to drain on its own rather than cut it
+        // back to the new max. Otherwise the gain is healed, up to the new max.
+        var health = Math.Max(0.01f, damage.Health + Math.Max(0f, gain));
+        if (damage.Health <= oldMax) health = Math.Min(max, health);
+        damage.SendSetHealth(health);
     }
 
     internal static void Reset()
