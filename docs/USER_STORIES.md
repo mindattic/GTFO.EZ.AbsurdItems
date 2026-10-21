@@ -6,7 +6,7 @@ layer: stories
 status: living
 updated: 2026-10-18
 ---
-<!-- GENERATED from MindAttic.Workflow/data/workflow.db by `workflow db render`. Do not edit: this file is rewritten from the database; change stories and tickets with the workflow CLI. -->
+<!-- GENERATED from MindAttic.Tickets/data/Tickets.db by `tickets db render`. Do not edit: this file is rewritten from the database; change stories and tickets with the tickets CLI. -->
 
 # GTFO.EZ.AbsurdItems — User Stories
 > ✅ done (shipped & tested) · 🟡 partial · ⬜ planned. Every ✅ cites the test.
@@ -38,3 +38,4 @@ _Nothing recorded yet._
 | GAI-T15 | 2026-10-19 | fix | closed | Hand Grenade carry cap was applied to teammates' consumable storage on your game - only your own storage now (bughunt for v14; uncommitted) | 247c0d4 |
 | GAI-T16 | 2026-10-19 | chore | closed | Bump GTFO.EZ.AbsurdItems to v14.0.0 with the GTFO.EZ family; changelog for GAI-T14/T15, and config/README wording that Hand Grenade damage counts the damage boosts (user request) | b927b53 |
 | GAI-T17 | 2026-10-19 | docs | closed | Mark everything new as confirmed in play: drop the not-yet-confirmed notes from the READMEs and config text (user confirmed after in-game testing) | 4021ccc |
+| GAI-T18 | 2026-10-20 | docs | open | Publish GTFO.EZ.AbsurdItems docs to GitHub Pages via the shared Toolkit DocFX pipeline: run adopt-docs-site.ps1 (README.md as home page, docs/*.md as articles, API reference only where the code builds in CI), enable Pages with build_type=workflow, set the repo homepage URL, retire tools/build-readme.ps1 and README.htm, confirm the docs Actions run is green and https://mindattic.github.io/GTFO.EZ.AbsurdItems/ returns 200. Depends on MAT-T8. | — |
