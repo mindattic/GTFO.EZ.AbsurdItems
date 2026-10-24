@@ -13,7 +13,7 @@ public class Plugin : BasePlugin
 {
     public const string GUID = "MindAttic.GTFO.EZ.AbsurdItems";
     public const string NAME = "GTFO.EZ.AbsurdItems";
-    public const string VERSION = "14.0.0";
+    public const string VERSION = "15.0.0";
 
     // Optional: GTFO.EZ's datablock tweaks run before this mod's items and kit loot (the kits follow
     // the resource budget it sets).
@@ -38,6 +38,8 @@ public class Plugin : BasePlugin
         }
 
         ArtifactBuffs.Bind(Config);
+        ArtifactGlow.Bind(Config);
+        Breadcrumbs.Bind(Config);
         ConsumablesAreKits.Bind(Config);
         HandGrenade.Bind(Config);
         StimPack.Bind(Config);
@@ -45,9 +47,11 @@ public class Plugin : BasePlugin
         ConfigImport.Apply(Config); // after every Bind: values from GTFO.EZ's / GTFO.EZ.AbsurdWeapons' cfgs, once
         ClassInjector.RegisterTypeInIl2Cpp<BurstFlash>();
         ClassInjector.RegisterTypeInIl2Cpp<HandGrenadeFuse>();
+        ClassInjector.RegisterTypeInIl2Cpp<ArtifactGlow>();
 
         new Harmony(GUID).PatchAll();
         AddComponent<HandGrenadeSupply>();
+        AddComponent<ArtifactGlow>();
 
         Logger.LogInfo($"{NAME} v{VERSION} loaded.");
     }

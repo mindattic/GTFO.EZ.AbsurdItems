@@ -21,6 +21,8 @@ installed.
 | Feature | Vanilla | Default | Switch |
 |---|---|---|---|
 | [Artifact buffs](#artifact-buffs) (Bold / Aggressive / Muted) | count toward boosters only | +5% max health / +5% damage / 5% harder to detect, each, for the level | `[Artifacts] Artifact Buffs Enabled` |
+| [Artifact glow](#artifact-glow) | plain model | glows and is tinted in its category's color: Aggressive red, Muted blue, Bold green | `[Artifacts] Artifact Glow Enabled` |
+| [Breadcrumbs](#breadcrumbs) | nothing marks where you've been | a glow stick marker drops at an opened container, an unlocked door, an opened door and a newly entered area | `[Breadcrumbs]` (one switch per kind) |
 | [Hand Grenade](#hand-grenade) (new consumable) | - | a lock melter thrown like a glowstick, blowing after 3 s; found as loot, up to 6 carried | `[Hand Grenade] Hand Grenade Enabled` |
 | [Stim Pack](#stim-pack) (new consumable) | - | heals 33% of max health and can overheal to 200%, draining back down; +33% damage for 15 s | `[Stim Pack] Stim Pack Enabled` |
 | [Consumables are kits](#consumables-are-kits) (lockers, boxes, lying around) | mixed items | a few small health, tool and ammo kits, 1-2 charges each, adding about 20% to the zone's resource packs | `[Loot] Consumables Are Kits` |
@@ -48,6 +50,35 @@ Aggressive; max health only changes on your own game.
 | `Bold: Max Health (%)` | 5 | Max health added per Bold artifact, in percent of your starting max health. |
 | `Aggressive: Damage (%)` | 5 | Damage to enemies (guns, melee and Hand Grenades) added per Aggressive artifact. |
 | `Muted: Quieter (%)` | 5 | How much harder you are to detect per Muted artifact (capped at 75%). |
+
+## Artifact glow
+
+Every artifact still lying in the level glows softly in its category's color and its own model is
+tinted to match, so which buff it gives is visible from across the room, not just once you're close
+enough to read its name: **Aggressive** (Rare) red, **Muted** (Common) blue, **Bold** (Uncommon)
+green. The light and tint are attached to the artifact itself, so they follow it, disappear with it
+on pickup, and come back on their own if a checkpoint restart puts the artifact back in the level.
+
+| Setting | Default | What it does |
+|---|---|---|
+| `Artifact Glow Enabled` | true | Turns the glow and model tint on or off. |
+
+## Breadcrumbs
+
+A small glowing marker - a cosmetic stand-in for a glow stick, no pickup behavior of its own - drops
+wherever the team has already been or already looted: a resource container (locker/case) opened, a
+door unlocked, a door opened, or a new area walked into for the first time. A glance at the trail
+says what's already been picked over and which way you've already come. Each marker drops once per
+container, door or area for the level - a checkpoint restart doesn't duplicate them.
+
+### `[Breadcrumbs]`
+
+| Setting | Default | What it does |
+|---|---|---|
+| `Mark Opened Containers` | true | Drops a marker at a resource container (locker/case) the moment it's opened. |
+| `Mark Unlocked Doors` | true | Drops a marker at a door the moment it's unlocked. |
+| `Mark Opened Doors` | true | Drops a marker at a door the moment it's opened. |
+| `Mark New Areas` | true | Drops a marker the first time you walk into a new area. |
 
 ## Consumables are kits
 
@@ -190,6 +221,8 @@ DLLs are the build references).
 src/GTFO.EZ.AbsurdItems/
   Plugin.cs              BepInEx entry point: binds each feature's config, applies Harmony patches
   ArtifactBuffs.cs       Per-player artifact counts and the max health, damage and detection buffs
+  ArtifactGlow.cs        Lights and tints each artifact in its category's color
+  Breadcrumbs.cs         Glow stick markers at opened containers/doors and newly entered areas
   ConsumablesAreKits.cs  Runs the shared kit loot at GameDataInit, after GTFO.EZ's tweaks, with Loot
                          Mix's Hand Grenades and Stim Packs as extras
   HandGrenade.cs         Hand Grenade consumable: glowstick clone, lock-melter look, throw force, fuse, cap

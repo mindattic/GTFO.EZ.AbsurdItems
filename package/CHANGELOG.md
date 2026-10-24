@@ -1,5 +1,17 @@
 # Changelog
 
+## v15
+
+- **Artifact glow:** artifacts still lying in the level now glow and are tinted in their category's
+  color - Aggressive (Rare) red, Muted (Common) blue, Bold (Uncommon) green - so which buff one gives
+  is visible from across the room. New `[Artifacts] Artifact Glow Enabled`.
+- **Breadcrumbs:** a glow stick marker now drops wherever the team has already been or already
+  looted - an opened resource container (locker/case), an unlocked door, an opened door, or a newly
+  entered area - so a glance says what's been picked over and which way you've come. New
+  `[Breadcrumbs]` section, one switch per kind.
+- Moves in step with the GTFO.EZ family's version number (GTFO.EZ, GTFO.EZ.AbsurdWeapons,
+  GTFO.EZ.AbsurdMoves and GTFO.EZ.AbsurdItems share one).
+
 ## v14
 
 - **Bold artifact fix:** picking up a Bold artifact during a Stim Pack overheal no longer cuts health
