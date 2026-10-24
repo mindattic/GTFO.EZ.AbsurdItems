@@ -44,3 +44,4 @@ _Nothing recorded yet._
 | GAI-T21 | 2026-10-22 | docs | closed | Update USER_STORIES.md | — |
 | GAI-T22 | 2026-10-24 | docs | closed | Update USER_STORIES.md | — |
 | GAI-T23 | 2026-10-24 | feature | closed | Artifact glow (category-colored light + model tint: Aggressive red, Muted blue, Bold green) and Breadcrumbs (glow stick markers at opened containers/doors and newly entered areas) | ArtifactGlow.cs, Breadcrumbs.cs |
+| GAI-T24 | 2026-10-24 | docs | closed | Reread and refresh README/package README: fix every Insert/Delete wording for the swap (Insert is now health, Delete is now ammo) | README.md |

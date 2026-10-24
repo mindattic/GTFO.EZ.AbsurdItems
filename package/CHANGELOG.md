@@ -9,6 +9,9 @@
   looted - an opened resource container (locker/case), an unlocked door, an opened door, or a newly
   entered area - so a glance says what's been picked over and which way you've come. New
   `[Breadcrumbs]` section, one switch per kind.
+- **Insert and Delete swapped: Insert is now infinite health, Delete is now infinite ammo.** Both
+  also always announce in the console now, not just the event log. Shared code
+  (`GTFO.EZ.Shared`), so every GTFO.* mod picks it up.
 - Moves in step with the GTFO.EZ family's version number (GTFO.EZ, GTFO.EZ.AbsurdWeapons,
   GTFO.EZ.AbsurdMoves and GTFO.EZ.AbsurdItems share one).
 
