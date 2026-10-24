@@ -13,8 +13,8 @@ those two. No game files are shipped or edited.
 **Every feature has its own on/off switch, and its numbers can be retuned,** in the config file
 BepInEx creates on first launch: `BepInEx\config\MindAttic.GTFO.EZ.AbsurdItems.cfg`. Its first entry,
 `[0. Mod] Enabled`, is the master switch: set it to `false` and the whole mod is off - nothing is
-patched, no item is added, no hotkey or loot change - and the other GTFO.* mods treat it as not
-installed.
+patched, no item is added, no hotkey or loot change - and the other mods sharing its code treat it
+as not installed.
 
 ## What it changes
 
@@ -181,9 +181,9 @@ health, so a Bold artifact's bonus survives it. Found as loot (see [Loot mix](#l
 
 **Insert** toggles infinite health (no damage to you; bots and teammates are unaffected) and
 **Delete** infinite ammo (every gun and tool stays full, no reloads), each announced in the event
-log and always in the console too. Both start off. They're the same two keys every GTFO.* mod has,
-from one shared copy of the code written in GTFO.EZ; with several of the mods installed, only one
-answers, so a press never toggles
+log and always in the console too. Both start off. They're the same two keys GTFO.EZ, its Absurd
+companions and GTFO.CrashTestDummies all have, from one shared copy of the code written in GTFO.EZ;
+with several of the mods installed, only one answers, so a press never toggles
 twice.
 
 ## Compatibility
@@ -201,8 +201,8 @@ twice.
   kit settings) or `MindAttic.GTFO.EZ.AbsurdWeapons.cfg` (Hand Grenade, Stim Pack, their sounds, Loot
   Mix - and the kit settings instead, if its Loot Mix was on, since those were the ones in use).
   After that this mod's `.cfg` is the one that counts; a setting already in it is never overwritten.
-- **Turning a mod off:** every GTFO.* mod's `.cfg` starts with `[0. Mod] Enabled`; a GTFO.* mod
-  switched off there counts as not installed for the others.
+- **Turning a mod off:** every GTFO.* mod's `.cfg` starts with `[0. Mod] Enabled`; a mod switched
+  off there counts as not installed for the others sharing its code.
 - Artifact buffs are confirmed in play. Muted scales the game's per-player detection modifier
   (`PlayerAgent.GetDetectionMod`).
 
