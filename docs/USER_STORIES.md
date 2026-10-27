@@ -47,3 +47,4 @@ _Nothing recorded yet._
 | GAI-T24 | 2026-10-24 | docs | closed | Reread and refresh README/package README: fix every Insert/Delete wording for the swap (Insert is now health, Delete is now ammo) | README.md |
 | GAI-T25 | 2026-10-24 | chore | closed | Cut the v16 release: pull in GTFO.EZ.Shared's Insert/Delete swap and always-console-log fix (submodule bump), fix GTFO.* wording, rebuild and repackage dist/ | package/manifest.json |
 | GAI-T26 | 2026-10-24 | chore | closed | Cut the v17 release: bump submodule to GTFO.EZ.Shared's Order cleanup, join CrashTestDummies/SkipDrop into the vN scheme, bump VERSION/manifest, rebuild and repackage dist/ | package/manifest.json |
+| GAI-T27 | 2026-10-26 | chore | closed | Cut the v18 release: moves in step with the GTFO.* family's version number, bump VERSION/manifest, rebuild and repackage dist/ | package/CHANGELOG.md |
